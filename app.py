@@ -32,7 +32,7 @@ def color_palette():
 
 @app.route('/')
 def home_endpoint():
-    return 'Get Color Palette!'
+    return "<h1>This is the Flask app for Color Palette Creation Project hosted <a href="https://abc.in">here</a></h1>"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
