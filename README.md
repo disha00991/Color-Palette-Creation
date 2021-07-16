@@ -12,7 +12,8 @@ Link: "-----"
 • Please do ⭐ the repository, if you liked the idea!
 
 • A glimpse of the web app: -
-
+- git url : https://git.heroku.com/color-palette-creation.git
+- app @ https://color-palette-creation.herokuapp.com/
 ------
 
 Inspiration:

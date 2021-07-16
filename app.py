@@ -32,12 +32,12 @@ def color_palette():
 
 @app.route('/')
 def home_endpoint():
-    return "<h1>This is the Flask app for Color Palette Creation Project hosted <a href="https://abc.in">here</a></h1>"
+    url = 'https://abc.in'
+    return "<h1>This is the Flask app for Color Palette Creation Project hosted <a href={url}>here</a></h1>"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 
 
 # curl command
-#>curl -X POST -d "is_url=true" -d "url=https://d21zeai4l2a92w.cloudfront.net/wp-content/uploads/2020/01/ColorChangingFlowers.jpg"
-#  http://192.168.0.16:5000/get_color_palette --output palet.png
+#>curl -X POST -d "is_url=true" -d "url=https://d21zeai4l2a92w.cloudfront.net/wp-content/uploads/2020/01/ColorChangingFlowers.jpg" http://192.168.0.16:5000/get_color_palette --output palet.png
