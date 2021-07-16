@@ -11,7 +11,8 @@ app = Flask(__name__)
 @todo
 input other algorithm for clustering @todo
 send rgb color values for use by user @todo
-
+home end point here -> deployed frontend link
+image can be uploaded from frontend too
 """
 @app.route('/get_color_palette', methods=['POST','GET'])
 def color_palette():
@@ -36,7 +37,7 @@ def home_endpoint():
     return "<h1>This is the Flask app for Color Palette Creation Project hosted <a href={url}>here</a></h1>"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
 
 
 # curl command
