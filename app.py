@@ -1,11 +1,14 @@
 # Importing essential libraries
 from flask import Flask, send_file, request
+from flask_cors import CORS
 from color_palette_creation import get_palette_plot
 from PIL import Image
 from io import BytesIO
 import requests
 from icecream import ic
+
 app = Flask(__name__)
+CORS(app)
 
 """
 @todo
@@ -18,8 +21,9 @@ image can be uploaded from frontend too
 def color_palette():
     ic(request.method)
     ic(request.form)
-
+    print("partt")
     if request.method == 'POST' or request.method == 'GET':
+        print("part2")
         img = ''
         if (request.form['is_url']=='true'):
             img = Image.open(BytesIO(requests.get(request.form['url']).content))
@@ -34,10 +38,11 @@ def color_palette():
 @app.route('/')
 def home_endpoint():
     url = 'https://abc.in'
-    return "<h1>This is the Flask app for Color Palette Creation Project hosted <a href={url}>here</a></h1>"
+    return "<h1>This is the Flask app for Color Palette Creation Project hosted at <a href='https://disha00991.github.io/webume/#/projects/color-palette'>here</a></h1>"
 
 if __name__ == '__main__':
-    app.run()
+    print('whatt?')
+    app.run(host='0.0.0.0', port=8080)
 
 
 # curl command
