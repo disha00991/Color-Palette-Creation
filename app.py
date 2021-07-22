@@ -19,21 +19,19 @@ image can be uploaded from frontend too
 """
 @app.route('/get_color_palette', methods=['POST','GET'])
 def color_palette():
-    ic(request.method)
-    ic(request.form)
+    is_url = request.args['is_url']
+    algo = request.args['algo']
+    url = request.args['url']
+    n_colors = request.args['n_colors']
     print("partt")
     if request.method == 'POST' or request.method == 'GET':
-        print("part2")
         img = ''
-        if (request.form['is_url']=='true'):
-            img = Image.open(BytesIO(requests.get(request.form['url']).content))
+        if (is_url=='true' and url):
+            img = Image.open(BytesIO(requests.get(url).content))
         else:
             img = Image.open(request.files['file'])
-        bytes_obj = get_palette_plot(img)
-       
-    return send_file(bytes_obj,
-                     download_name='palette.png',
-                     mimetype='image/png')
+
+    return get_palette_plot(img, algo, int(n_colors))
 
 @app.route('/')
 def home_endpoint():
@@ -46,4 +44,4 @@ if __name__ == '__main__':
 
 
 # curl command
-#>curl -X POST -d "is_url=true" -d "url=https://d21zeai4l2a92w.cloudfront.net/wp-content/uploads/2020/01/ColorChangingFlowers.jpg" http://192.168.0.16:5000/get_color_palette --output palet.png
+#>curl -X POST -d "is_url=true" -d "url=https://d21zeai4l2a92w.cloudfront.net/wp-content/uploads/2020/01/ColorChangingFlowers.jpg" http://127.0.0.1:5000/get_color_palette --output palet.png
