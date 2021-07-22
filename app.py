@@ -28,19 +28,17 @@ def color_palette():
         img = ''
         if (is_url=='true' and url):
             img = Image.open(BytesIO(requests.get(url).content))
-        else:
-            img = Image.open(request.files['file'])
+        # else:
+        #     img = Image.open(request.files['file'])
 
     return get_palette_plot(img, algo, int(n_colors))
 
 @app.route('/')
 def home_endpoint():
-    url = 'https://abc.in'
     return "<h1>This is the Flask app for Color Palette Creation Project hosted at <a href='https://disha00991.github.io/webume/#/projects/color-palette'>here</a></h1>"
 
 if __name__ == '__main__':
-    print('whatt?')
-    app.run(host='0.0.0.0', port=8080)
+    app.run()
 
 
 # curl command
