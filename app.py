@@ -8,7 +8,7 @@ import requests
 from icecream import ic
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/get_color_palette": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 """
